@@ -31,6 +31,8 @@
     <!-- Template Main CSS File -->
     <link href="{{asset('frontend/assets/css/style.css')}}" rel="stylesheet">
 
+    <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=60c1b305f964f40012bca31d&product=inline-share-buttons" async="async"></script>
+
     <!-- =======================================================
     * Template Name: Company - v2.1.0
     * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
