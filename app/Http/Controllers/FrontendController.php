@@ -10,7 +10,10 @@ use App\Models\Event;
 use App\Models\Download;
 use App\Models\Contact;
 use App\Models\Social;
+use App\Models\ClientContact;
 use Illuminate\Http\Request;
+use App\Http\Requests\ContactUsRequest;
+use Illuminate\Support\Carbon;
 
 class FrontendController extends Controller
 {
@@ -64,6 +67,22 @@ class FrontendController extends Controller
         $social=Social::first();
         return view('frontend.contact',compact('navbars','contact','social'));
     }
+
+    public function contactUs(Request $request){
+        $data=json_encode($request->all());
+       $result=json_decode($data);
+
+        ClientContact::insert([
+            'name'=>$result->name,
+            'email'=>$result->email,
+            'subject'=>$result->subject,
+            'message'=>$result->message,
+            'status'=>0,
+            'created_at'=>Carbon::now(),
+    ]);
+        return "Form Submitted Successfully";
+    }
+
 
 
 }

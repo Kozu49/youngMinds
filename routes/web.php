@@ -30,6 +30,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NavBarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\MessageController;
 
 Auth::routes();
 //Route::get('/', function () {
@@ -43,6 +44,7 @@ Route::get('/event', [FrontendController::class,'eventShow'])->name('show.event'
 Route::get('/notice', [FrontendController::class,'noticeShow'])->name('show.notice');
 Route::get('/download', [FrontendController::class,'download'])->name('show.download');
 Route::get('/contact', [FrontendController::class,'contact'])->name('show.contact');
+Route::post('/contactUs', [FrontendController::class,'contactUs'])->name('client.contact');
 //Route::get('/', 'HomeController@index');
 
 
@@ -94,6 +96,7 @@ Route::group(['middleware' => ['auth', 'roles']], function () {
     Route::resource('admin/navbar', NavBarController::class);
     Route::resource('admin/contact', ContactController::class);
     Route::resource('admin/socialmedia', SocialController::class);
+    Route::resource('admin/message', MessageController::class);
 
 
     Route::resource('feedback', FeedbackController::class);

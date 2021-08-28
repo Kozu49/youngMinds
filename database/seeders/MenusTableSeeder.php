@@ -306,6 +306,16 @@ class MenusTableSeeder extends Seeder
                 'menu_status' => '1',
                 'menu_order' => '29'
             ],
+            [
+                'parent_id' => '0',
+                'menu_name' => 'Message',
+                'menu_link' => 'admin/message',
+                'menu_controller' => 'MessageController',
+                'menu_css' => '',
+                'menu_icon' => '<i class="fa fa-envelope" aria-hidden="true"></i>',
+                'menu_status' => '1',
+                'menu_order' => '30'
+            ],
 
         ];
         DB::table('menus')->insert($rows);
