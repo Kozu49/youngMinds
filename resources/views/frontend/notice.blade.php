@@ -44,14 +44,15 @@
                             <div class="entry-content">
                                 {!! $notice->content!!}
                             </div>
+
+                            <button class="btn btn-dark btn-lg float-right"><a href="{{$notice->notice_file}}" target="_blank"><strong>Download</strong></a></button>
+                            <br><br>
                             <hr>
                         </article><!-- End blog entry -->
-                    <br><br>
                     <hr>
-                        <button class="btn btn-dark"><a href="{{$notice->notice_file}}" target="_blank"><strong>Download</strong></a></button>
-                    <br><br>
-                    @endforeach
 
+                    @endforeach
+                        <hr>
                 </div>
             <div class="blog-pagination">
                 <div class="blog-pagination">

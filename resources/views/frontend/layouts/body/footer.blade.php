@@ -11,7 +11,9 @@
                 <div class="col-lg-4 col-md-6 footer-contact">
                     <h3>Young Minds</h3>
                     <p>
-                        {{$contact->location}}
+                        {{$contact->location}}<br><br>
+                       Phone: {{$contact->email}}<br><br>
+                       Email: {{$contact->phone}}
                     </p>
                 </div>
 

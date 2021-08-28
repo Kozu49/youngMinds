@@ -47,7 +47,7 @@
                                 <div class="entry-content">
                                     {!! Str::limit($news->content,400) !!}
                                     <div class="read-more">
-                                        <button class="btn btn-dark"> <a href="{{route('news.single.page',$news->id)}}">Read More</a></button>
+                                        <button class="btn btn-dark"> <a href="{{route('news.single.page',$news->slug)}}">Read More</a></button>
                                     </div>
                                 </div>
 

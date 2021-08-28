@@ -38,7 +38,7 @@ Auth::routes();
 
 Route::get('/', [FrontendController::class,'index'])->name('home');
 Route::get('/news', [FrontendController::class,'newsShow'])->name('show.news');
-Route::get('/news/{id}', [FrontendController::class,'newsSingleShow'])->name('news.single.page');
+Route::get('/news/{slug}', [FrontendController::class,'newsSingleShow'])->name('news.single.page');
 Route::get('/event', [FrontendController::class,'eventShow'])->name('show.event');
 Route::get('/notice', [FrontendController::class,'noticeShow'])->name('show.notice');
 Route::get('/download', [FrontendController::class,'download'])->name('show.download');

@@ -34,9 +34,9 @@ class FrontendController extends Controller
         return view('frontend.news',compact('navbars','newses'));
     }
 
-    public function newsSingleShow($id){
+    public function newsSingleShow($slug){
         $navbars=NavBar::all();
-        $news=News::find($id);
+        $news=News::where('slug',$slug)->first();
         return view('frontend.newssingle',compact('navbars','news'));
     }
 

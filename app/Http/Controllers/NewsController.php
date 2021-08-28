@@ -65,6 +65,8 @@ class NewsController extends Controller
                 'news_date'=>$request->news_date,
                 'user_id'=>Auth::user()->id,
                 'banner_image'=>$last_img,
+//                'slug'=>str_slug($request->title,'%'),
+                'slug'=>$this->createSlug($request->title),
                 'created_at'=>Carbon::now(),
 
             ]);
@@ -194,7 +196,31 @@ class NewsController extends Controller
         }
     }
 
-    public function manoj(){
-        echo 'asdasd';
+    public function createSlug($title, $id = 0)
+    {
+        $slug = str_slug($title);
+        $allSlugs = $this->getRelatedSlugs($slug, $id);
+        if (! $allSlugs->contains('slug', $slug)){
+            return $slug;
+        }
+
+        $i = 1;
+        $is_contain = true;
+        do {
+            $newSlug = $slug . '-' . $i;
+            if (!$allSlugs->contains('slug', $newSlug)) {
+                $is_contain = false;
+                return $newSlug;
+            }
+            $i++;
+        } while ($is_contain);
     }
+    protected function getRelatedSlugs($slug, $id = 0)
+    {
+        return News::select('slug')->where('slug', 'like', $slug.'%')
+            ->where('id', '<>', $id)
+            ->get();
+    }
+
+
 }

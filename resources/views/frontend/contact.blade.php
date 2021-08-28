@@ -50,8 +50,8 @@
 
                         <div class="col-lg-3 info mt-3 mt-lg-0">
                             <i class="icofont-globe" aria-hidden="true"></i>
-                            <h4>Website:</h4>
-                            <a href="{{$contact->website}}" target="_blank">{{$contact->website}}</a>
+                            <a href="{{$contact->website}}" target="_blank"><h4>Website</h4></a>
+
                         </div>
                     </div>
                 </div>

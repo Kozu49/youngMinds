@@ -27,6 +27,7 @@ class NewsRequest extends FormRequest
             'title' => 'required',
             'content' => 'required',
             'news_date' => 'required',
+
         ];
 
         if ($this->getMethod() == 'POST') {
