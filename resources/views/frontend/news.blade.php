@@ -33,7 +33,7 @@
                                 </div>
 
                                 <h2 class="entry-title">
-                                    <a href="blog-single.html">{{$news->title}}</a>
+                                    <a href="">{{$news->title}}</a>
                                 </h2>
 
                                 <div class="entry-meta">

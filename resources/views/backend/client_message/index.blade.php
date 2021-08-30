@@ -104,7 +104,7 @@
                                                             @if($message->status==1)
                                                                 <a href="" class="btn btn-primary btn-custom" >Reviewed</a>
                                                             @elseif($message->status==0)
-                                                                <a href="{{route('message.edit',$message->id)}}" class="btn btn-danger btn-custom">Pending...</a>
+                                                                <a href="{{route('message.edit',$message->id)}}" class="btn btn-danger btn-custom">Review</a>
                                                             @endif
 
                                                         </td>

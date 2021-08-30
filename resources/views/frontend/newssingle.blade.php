@@ -30,7 +30,7 @@
                         </div>
 
                         <h2 class="entry-title">
-                            <a href="">{{$news->title}}</a>
+                            {{$news->title}}
                         </h2>
 
                         <div class="entry-meta">
