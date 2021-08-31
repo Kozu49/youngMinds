@@ -31,6 +31,7 @@ use App\Http\Controllers\NavBarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PdfController;
 
 Auth::routes();
 //Route::get('/', function () {
@@ -46,6 +47,9 @@ Route::get('/download', [FrontendController::class,'download'])->name('show.down
 Route::get('/contact', [FrontendController::class,'contact'])->name('show.contact');
 Route::post('/contactUs', [FrontendController::class,'contactUs'])->name('client.contact');
 //Route::get('/', 'HomeController@index');
+
+
+//Route::post('/admin/news', [PdfController::class,'test'])->name('news.pdf');
 
 
 Route::group(['middleware' => ['auth', 'roles']], function () {
@@ -92,6 +96,10 @@ Route::group(['middleware' => ['auth', 'roles']], function () {
     Route::resource('admin/download', DownloadController::class);
     Route::resource('admin/event', EventController::class);
     Route::resource('admin/notice', NoticeController::class);
+
+    Route::get('/admin/news/{id}/pdf', [NewsController::class,'newsPdf'])->name('news.pdf');
+    Route::get('/admin/news/{id}/view', [NewsController::class,'newsView'])->name('news.view');
+
     Route::resource('admin/news', NewsController::class);
     Route::resource('admin/navbar', NavBarController::class);
     Route::resource('admin/contact', ContactController::class);

@@ -38,4 +38,9 @@
             min-height: 42px !important;
         }
     </style>
+
+    <link rel="stylesheet" href="{{url('plugins/nepali-datepicker-v3/css/nepali.datepicker.v3.min.css')}}">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 </head>

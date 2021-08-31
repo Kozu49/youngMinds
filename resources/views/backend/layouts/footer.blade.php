@@ -7,6 +7,13 @@
     </div>
 </footer>
 
+//Nepalidate
+<!-- this should go after your </body> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/nepali-date-picker@2.0.1/dist/jquery.nepaliDatePicker.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous" />
+
+
 <!-- jQuery -->
 <script src="{{url('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -42,6 +49,8 @@
 <!-- datetimepicker -->
 <script src={{url("plugins/iCheck/icheck.min.js")}}></script>
 
+
+<script src="{{url('plugins/nepali-datepicker-v3/js/nepali.datepicker.v3.min.js')}}"></script>
 
 <script>
     $(function () {

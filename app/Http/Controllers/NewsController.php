@@ -8,9 +8,13 @@ use App\Http\Requests\NewsRequest;
 use App\Repository\NewsRepository;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Nilambar\NepaliDate\NepaliDate;
+use PDF;
+
 
 class NewsController extends Controller
 {
+
 /**
 * @var NewsRepository
      */
@@ -29,6 +33,7 @@ class NewsController extends Controller
      */
     public function index()
     {
+
         $newses = $this->newsRepository->all();
         return view('backend.news.index', compact('newses'));
     }
@@ -220,6 +225,21 @@ class NewsController extends Controller
         return News::select('slug')->where('slug', 'like', $slug.'%')
             ->where('id', '<>', $id)
             ->get();
+    }
+
+    public function newsPdf($id){
+       $news= $this->newsRepository->findById($id);
+        $pdf = PDF::loadView('backend.news.news_details_pdf', ['news'=>$news]);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('document.pdf');
+
+
+    }
+
+    public function newsView($id){
+        $news= $this->newsRepository->findById($id);
+        return view('backend.news.news_view',compact('news'));
+
     }
 
 

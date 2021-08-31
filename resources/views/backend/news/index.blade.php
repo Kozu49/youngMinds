@@ -74,7 +74,7 @@
                                                             <td>{{$news->title}}</td>
 {{--                                                            <td>{{$news->content}}</td>--}}
                                                             <td>{{Str::limit($news->content, 50)}}</td>
-                                                            <td><img src="{{asset($news->banner_image)}}" style="height:100px;width:100;" alt=""></td>
+                                                            <td><img src="{{asset($news->banner_image)}}" style="height:80px;width:100px;" alt=""></td>
                                                             <td>{{$news->news_date}}</td>
                                                             <td>{{$news->user->name}}</td>
                                                             <td class="text-right row" style="margin-right: 0px;">
@@ -99,6 +99,12 @@
 
                                                                     {!! Form::close() !!}
                                                                 @endif
+
+                                                                    <a href="{{route('news.view',$news->id)}}"
+                                                                       class="text-info btn btn-xs btn-default" data-toggle="tooltip"
+                                                                       data-placement="top" title="view" style="margin: 0px 5px;">
+                                                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                    </a>
 
                                                             </td>
                                                         </tr>
