@@ -51,11 +51,22 @@
                                             $allowAdd = $permission['isAdd'];
                                             ?>
                                         </div>
+                                        <div>
+{{--                                            <a href="" class="btn btn-danger pull-right" id="deleteAllSelected">Delete Selected</a>--}}
+                                            <button type="submit"
+                                                    class="btn btn-danger pull-right"
+                                                    data-toggle="tooltip"
+                                                    id="deleteAllSelected"
+                                                    onclick="javascript:return confirm('Are you sure you want to delete selected News?');">Delete Selected
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </div>
                                         <div class="table-responsive">
                                             <div class="card-body">
                                                 <table id="example1" class="table table-striped table-bordered table-hover table-responsive">
                                                     <thead>
                                                     <tr>
+                                                        <th><input type="checkbox" id="checkAll"></th>
                                                         <th style="width: 10px;">{{trans('app.sn')}}</th>
                                                         <th>Title</th>
                                                         <th>Content</th>
@@ -69,7 +80,8 @@
                                                     <tbody>
                                                     <?php $i = 1;?>
                                                     @forelse($newses as $news)
-                                                        <tr>
+                                                        <tr id="sid{{$news->id}}">
+                                                            <td><input type="checkbox" name="ids" class="checkItem" value="{{$news->id}}"></td>
                                                             <th scope=row>{{$i}}</th>
                                                             <td>{{$news->title}}</td>
 {{--                                                            <td>{{$news->content}}</td>--}}
@@ -144,4 +156,44 @@
 
     <!-- /.content-wrapper -->
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#checkAll').click(function(){
+                if($(this).is(':checked')){
+                    $('.checkItem').prop("checked",true);
+                }else {
+                    $(".checkItem").prop("checked",false);
+                }
+            });
+
+
+            $("#deleteAllSelected").click(function(e){
+                e.preventDefault();
+                var allids=[];
+                $("input:checkbox[name=ids]:checked").each(function () {
+                    allids.push($(this).val());
+                });
+                $.ajax({
+                    url: "{{route('delete.selected.news')}}",
+                    type:"DELETE",
+                    data:{
+                        _token:$("input[name=_token]").val(),
+                        ids: allids
+                    },
+                    success:function (response) {
+                        $.each(allids,function (key,val) {
+                            $("#sid"+val).remove();
+                        })
+                    }
+                });
+
+            })
+
+        });
+
+
+
+
+
+    </script>
 @endsection

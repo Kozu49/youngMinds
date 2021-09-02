@@ -48,12 +48,23 @@ class EventController extends Controller
      */
     public function store(EventRequest $request)
     {
+
         try {
-            $create = Event::create($request->all());
-            if ($create) {
+            $count=count($request->title);
+            if ($count!=Null){
+                for ($i=0; $i <$count; $i++){
+                    $event=new Event();
+                    $event->title=$request->title[$i];
+                    $event->start_date=$request->start_date[$i];
+                    $event->end_date=$request->end_date[$i];
+                    $event->venue=$request->venue[$i];
+                    $event->content=$request->content[$i];
+                    $event->save();
+                }
                 session()->flash('success', 'Event successfully created!');
                 return back();
-            } else {
+            }
+            else {
                 session()->flash('error', 'Event could not be created!');
                 return back();
             }

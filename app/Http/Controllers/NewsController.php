@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Nilambar\NepaliDate\NepaliDate;
 use PDF;
+use function PHPUnit\Framework\assertLessThan;
 
 
 class NewsController extends Controller
@@ -239,6 +240,14 @@ class NewsController extends Controller
     public function newsView($id){
         $news= $this->newsRepository->findById($id);
         return view('backend.news.news_view',compact('news'));
+
+    }
+
+    public function deleteCheckedNews(Request $request)
+    {
+        $ids=$request->ids;
+        News::whereIn('id',$ids)->delete();
+        return response()->json(['success'=>"News deleted sucessfully"]);
 
     }
 

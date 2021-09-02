@@ -35,7 +35,7 @@
             <label>Notice Date
                 <label class="text-danger"> *</label>
             </label>
-        {!! Form::date('notice_date',null,['class'=>'form-control','placeholder' => 'End Date']) !!}
+        {!! Form::text('notice_date',null,['class'=>'form-control','id'=>'cal','placeholder' => 'End Date']) !!}
         {!! $errors->first('notice_date', '<span class="text-danger">:message</span>') !!}
 
         <!-- /.input group -->
@@ -62,4 +62,14 @@
     <!-- /.card-body -->
 </div>
 <!-- /.card -->
+@section('js')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#cal').nepaliDatePicker({
+                ndpMonth: true,
+                ndpYear: true,
+            });
 
+        });
+    </script>
+@endsection

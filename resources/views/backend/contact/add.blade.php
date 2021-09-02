@@ -4,7 +4,7 @@
 
     </div>
     <div class="card-body">
-    {!! Form::open(['method'=>'post','url'=>'admin/contact']) !!}
+    {!! Form::open(['method'=>'post','url'=>'admin/contact','id'=>'contact-form']) !!}
 
 
     <!-- /.input group -->
@@ -67,3 +67,29 @@
 </div>
 <!-- /.card -->
 
+@section('js')
+
+    <script>
+        $(document).ready(function () {
+            $('#contact-form').validate({ // initialize the plugin
+                 rules: {
+               location : {
+                         required: true,
+                     },
+                     phoneNumber: {
+                         required:true,
+                     },
+                     salary: {
+                         required:true,
+                     }
+                 },
+                 messages: {
+                  location : "Please sadasdasdsd file*",
+                     phoneNumber : "Please input file*",
+                     salary : "Please input file*",
+                 },
+
+             });
+     })
+    </script>
+@endsection

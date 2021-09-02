@@ -48,6 +48,12 @@
                         </div>
                         <br>
                         <div class="sharethis-inline-share-buttons"></div>
+                        <br>
+                        <div>
+                            <a href="{{route('news.pdf',$news->id)}}" target="_blank"><button class="btn btn-dark pull-left" id="exportToPDF"><i
+                                        class="fa fa-file-pdf-o text-danger" ></i> Download As PDF
+                                </button></a>
+                        </div>
                     </article><!-- End blog entry -->
                     <br>
                     <div id="fb-root"></div>

@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth', 'roles']], function () {
 
     Route::get('/admin/news/{id}/pdf', [NewsController::class,'newsPdf'])->name('news.pdf');
     Route::get('/admin/news/{id}/view', [NewsController::class,'newsView'])->name('news.view');
+    Route::delete('selected-news/', [NewsController::class,'deleteCheckedNews'])->name('delete.selected.news');
 
     Route::resource('admin/news', NewsController::class);
     Route::resource('admin/navbar', NavBarController::class);
