@@ -58,7 +58,6 @@
                                                     data-toggle="tooltip"
                                                     id="deleteAllSelected"
                                                     onclick="javascript:return confirm('Are you sure you want to delete selected News?');">Delete Selected
-                                                <i class="fa fa-trash"></i>
                                             </button>
                                         </div>
                                         <div class="table-responsive">

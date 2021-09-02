@@ -91,10 +91,16 @@ Route::group(['middleware' => ['auth', 'roles']], function () {
         Route::get('/loginLogs', [LogController::class,'loginLogs']);
         Route::get('/failLoginLogs', [LogController::class,'failLogin']);
     });
-
+    Route::delete('selected-slider/', [SliderController::class,'deleteCheckedSlider'])->name('delete.selected.slider');
     Route::resource('admin/slider', SliderController::class);
+
+    Route::delete('selected-download/', [DownloadController::class,'deleteCheckedDownload'])->name('delete.selected.download');
     Route::resource('admin/download', DownloadController::class);
+
+    Route::delete('selected-event/', [EventController::class,'deleteCheckedEvent'])->name('delete.selected.event');
     Route::resource('admin/event', EventController::class);
+
+    Route::delete('selected-notice/', [NoticeController::class,'deleteCheckedNotice'])->name('delete.selected.notice');
     Route::resource('admin/notice', NoticeController::class);
 
     Route::get('/admin/news/{id}/pdf', [NewsController::class,'newsPdf'])->name('news.pdf');

@@ -51,10 +51,19 @@
                                             $allowAdd = $permission['isAdd'];
                                             ?>
                                         </div>
+                                        <div>
+                                            <button type="submit"
+                                                    class="btn btn-danger pull-right"
+                                                    data-toggle="tooltip"
+                                                    id="deleteAllSelected"
+                                                    onclick="javascript:return confirm('Are you sure you want to delete selected events?');">Delete Selected
+                                            </button>
+                                        </div>
                                         <div class="card-body">
                                             <table id="example1" class="table table-striped table-bordered table-hover table-responsive">
                                                 <thead>
                                                 <tr>
+                                                    <th><input type="checkbox" id="checkAll"></th>
                                                     <th style="width: 10px;">{{trans('app.sn')}}</th>
                                                     <th>Title</th>
                                                     <th>Start Date</th>
@@ -68,7 +77,8 @@
                                                 <tbody>
                                                 <?php $i = 1;?>
                                                 @forelse($events as $event)
-                                                    <tr>
+                                                    <tr id="sid{{$event->id}}">
+                                                        <td><input type="checkbox" name="ids" class="checkItem" value="{{$event->id}}"></td>
                                                         <th scope=row>{{$i}}</th>
                                                         <td>{{$event->title}}</td>
                                                         <td>{{$event->start_date}}</td>
@@ -134,5 +144,46 @@
     </div>
 
     <!-- /.content-wrapper -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#checkAll').click(function(){
+                if($(this).is(':checked')){
+                    $('.checkItem').prop("checked",true);
+                }else {
+                    $(".checkItem").prop("checked",false);
+                }
+            });
+
+
+            $("#deleteAllSelected").click(function(e){
+                e.preventDefault();
+                var allids=[];
+                $("input:checkbox[name=ids]:checked").each(function () {
+                    allids.push($(this).val());
+                });
+                $.ajax({
+                    url: "{{route('delete.selected.event')}}",
+                    type:"DELETE",
+                    data:{
+                        _token:$("input[name=_token]").val(),
+                        ids: allids
+                    },
+                    success:function (response) {
+                        $.each(allids,function (key,val) {
+                            $("#sid"+val).remove();
+                        })
+                    }
+                });
+
+            })
+
+        });
+
+
+
+
+
+    </script>
 
 @endsection

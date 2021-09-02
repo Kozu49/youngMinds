@@ -49,14 +49,23 @@ class NavBarController extends Controller
     {
 
         try {
-        $create = NavBar::create($request->all());
-        if ($create) {
-            session()->flash('success', 'NavBar Title successfully created!');
+//        $create = NavBar::create($request->all());
+//        if ($create) {
+//            session()->flash('success', 'NavBar Title successfully created!');
+//            return back();
+//        } else {
+//            session()->flash('error', 'Event could not be created!');
+//            return back();
+//        }
+            NavBar::insert([
+                'navbar'=>$request->navbar,
+//                'url'=>$request->url,
+                'url'=>$this->createUrl($request->url),
+
+            ]);
+            session()->flash('success', 'News Successfully Added!');
             return back();
-        } else {
-            session()->flash('error', 'Event could not be created!');
-            return back();
-        }
+
     } catch (\Exception $e) {
         $e->getMessage();
         session()->flash('error', 'Exception : ' . $e);
@@ -151,4 +160,23 @@ class NavBarController extends Controller
             return back();
         }
     }
+
+    public function createUrl($url){
+        $allUrl = $this->getRelatedUrls($url);
+        if (! $allUrl->contains('url', $url)){
+            return $url;
+        }
+        else{
+            return false;
+        }
+}
+
+public function getRelatedUrls($url){
+    return NavBar::select('url')->where('url', 'like', $url)
+        ->get();
+
+
+}
+
+
 }

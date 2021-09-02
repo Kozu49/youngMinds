@@ -185,4 +185,10 @@ class SliderController extends Controller
             return back();
         }
     }
+
+    public function deleteCheckedSlider(Request $request){
+        $ids=$request->ids;
+        Slider::whereIn('id',$ids)->delete();
+        return response()->json(['success'=>"Slider deleted sucessfully"]);
+    }
 }

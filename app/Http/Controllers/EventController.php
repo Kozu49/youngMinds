@@ -163,4 +163,9 @@ class EventController extends Controller
             return back();
         }
     }
+    public function deleteCheckedEvent(Request $request){
+        $ids=$request->ids;
+        Event::whereIn('id',$ids)->delete();
+        return response()->json(['success'=>"Event deleted sucessfully"]);
+    }
 }

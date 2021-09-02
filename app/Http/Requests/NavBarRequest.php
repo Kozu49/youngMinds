@@ -25,7 +25,7 @@ class NavBarRequest extends FormRequest
     {
         return [
             'navbar' => 'required',
-            'url' => 'required',
+            'url' => 'required|unique:nav_bars',
 
         ];
     }

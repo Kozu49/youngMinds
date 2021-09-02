@@ -23,7 +23,7 @@
             <label>Date
                 <label class="text-danger"> *</label>
             </label>
-        {!! Form::date('created_date',null,['class'=>'form-control','placeholder' => 'Date']) !!}
+        {!! Form::text('created_date',null,['class'=>'form-control','id'=>'cal','class'=>'cal','placeholder' => 'Date']) !!}
         {!! $errors->first('created_date', '<span class="text-danger">:message</span>') !!}
 
         <!-- /.input group -->
@@ -48,4 +48,17 @@
     <!-- /.card-body -->
 </div>
 <!-- /.card -->
+@section('js')
 
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.cal').nepaliDatePicker({
+                ndpMonth: true,
+                ndpYear: true,
+            });
+
+        });
+    </script>
+
+@endsection

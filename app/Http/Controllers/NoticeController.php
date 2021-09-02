@@ -230,4 +230,10 @@ class NoticeController extends Controller
             return back();
         }
     }
+
+    public function deleteCheckedNotice(Request $request){
+        $ids=$request->ids;
+        Notice::whereIn('id',$ids)->delete();
+        return response()->json(['success'=>"Notice deleted sucessfully"]);
+    }
 }

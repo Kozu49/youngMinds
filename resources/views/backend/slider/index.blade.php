@@ -51,10 +51,19 @@
                                             $allowAdd = $permission['isAdd'];
                                             ?>
                                         </div>
+                                        <div>
+                                            <button type="submit"
+                                                    class="btn btn-danger pull-right"
+                                                    data-toggle="tooltip"
+                                                    id="deleteAllSelected"
+                                                    onclick="javascript:return confirm('Are you sure you want to delete selected Slider?');">Delete Selected
+                                            </button>
+                                        </div>
                                         <div class="card-body">
                                             <table id="example1" class="table table-striped table-bordered table-hover table-responsive">
                                                 <thead>
                                                 <tr>
+                                                    <th><input type="checkbox" id="checkAll"></th>
                                                     <th style="width: 10px;">{{trans('app.sn')}}</th>
                                                     <th>Slider Title</th>
                                                     <th>Description</th>
@@ -66,7 +75,8 @@
                                                 <tbody>
                                                 <?php $i = 1;?>
                                                 @forelse($sliders as $slider)
-                                                    <tr>
+                                                    <tr id="sid{{$slider->id}}">
+                                                        <td><input type="checkbox" name="ids" class="checkItem" value="{{$slider->id}}"></td>
                                                         <th scope=row>{{$i}}</th>
                                                         <td>{{$slider->title}}</td>
                                                         <td>{{Str::limit($slider->description, 50)}}</td>
@@ -129,5 +139,46 @@
     </div>
 
     <!-- /.content-wrapper -->
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#checkAll').click(function(){
+                if($(this).is(':checked')){
+                    $('.checkItem').prop("checked",true);
+                }else {
+                    $(".checkItem").prop("checked",false);
+                }
+            });
+
+
+            $("#deleteAllSelected").click(function(e){
+                e.preventDefault();
+                var allids=[];
+                $("input:checkbox[name=ids]:checked").each(function () {
+                    allids.push($(this).val());
+                });
+                $.ajax({
+                    url: "{{route('delete.selected.slider')}}",
+                    type:"DELETE",
+                    data:{
+                        _token:$("input[name=_token]").val(),
+                        ids: allids
+                    },
+                    success:function (response) {
+                        $.each(allids,function (key,val) {
+                            $("#sid"+val).remove();
+                        })
+                    }
+                });
+
+            })
+
+        });
+
+
+
+
+
+    </script>
 
 @endsection

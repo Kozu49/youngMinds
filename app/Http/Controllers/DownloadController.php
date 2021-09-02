@@ -191,4 +191,10 @@ class DownloadController extends Controller
         }
     }
 
+    public function deleteCheckedDownload(Request $request){
+        $ids=$request->ids;
+        Download::whereIn('id',$ids)->delete();
+        return response()->json(['success'=>"Download deleted sucessfully"]);
+    }
+
 }
