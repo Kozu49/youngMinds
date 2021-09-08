@@ -28,7 +28,7 @@
         </div>
         <div class="form-group col-md-12 {{ ($errors->has('news_date'))?'has-error':'' }}">
             <label>Date</label><label class="text-danger"> *</label>
-            {!! Form::text('news_date',null,['class'=>'form-control','id'=>'cal','placeholder'=>'Enter Date','autocomplete'=>'off']) !!}
+            {!! Form::date('news_date',null,['class'=>'form-control','id'=>'cal123','placeholder'=>'Enter Date','autocomplete'=>'off']) !!}
             {!! $errors->first('news_date', '<span class="text-danger">:message</span>') !!}
 
 

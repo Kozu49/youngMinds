@@ -25,7 +25,7 @@ class NavBarRequest extends FormRequest
     {
         return [
             'navbar' => 'required',
-            'url' => 'required|unique:nav_bars',
+            'url' => 'required|unique:nav_bars|regex:/^[a-zA-Z]+$/u',
 
         ];
     }

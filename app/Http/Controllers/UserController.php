@@ -41,7 +41,7 @@ class UserController extends Controller
 
     public function __construct(UserRepository $userRepository, Designation $designation, UserGroupRepository $userGroupRepository, User $user)
     {
-        
+
         $this->userRepository = $userRepository;
         $this->designation = $designation;
         $this->userGroupRepository = $userGroupRepository;

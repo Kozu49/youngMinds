@@ -6,7 +6,9 @@
             <div class="container">
 
                 <div class="d-flex justify-content-between align-items-center">
-                    <h2>News</h2>
+{{--                    <h2>News</h2>--}}
+                    <li>{{trans('lang.news')}}</li>
+
                     <ol>
                         <li><a href="{{route('home')}}">Home</a></li>
                         <li>News</li>
@@ -15,7 +17,6 @@
 
             </div>
         </section><!-- End Breadcrumbs -->
-
         <!-- ======= Blog Section ======= -->
         <section id="news" class="news">
             <div class="container">

@@ -59,8 +59,7 @@ class NavBarController extends Controller
 //        }
             NavBar::insert([
                 'navbar'=>$request->navbar,
-//                'url'=>$request->url,
-                'url'=>$this->createUrl($request->url),
+                'url'=>'/'.$this->createUrl($request->url),
 
             ]);
             session()->flash('success', 'News Successfully Added!');

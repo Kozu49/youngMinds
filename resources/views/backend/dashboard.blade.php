@@ -6,6 +6,9 @@
 @section('content')
 
 
+
+
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -140,7 +143,150 @@
 
             </div>
             </div>
+
         </section>
+<div class="col-md-4">
+    <div class="chart-container">
+        <div class="pie-chart-container">
+            <canvas id="pie-chart"></canvas>
+        </div>
+    </div>
+
+</div>
+
+
+{{--        <div class="col-md-12">--}}
+{{--            <h1 class="text-center">Monthly News Chart</h1>--}}
+{{--            <div class="col-md-8 col-md-offset-2">--}}
+{{--                <div class="col-xl-6">--}}
+{{--                    <div class="card">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <div class="chart-container">--}}
+{{--                                <div class="chart has-fixed-height" id="bars_basic"></div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $(function(){
+            //get the pie chart canvas
+            var cData = JSON.parse(`<?php echo $data['chart_data'];?>`);
+            // console.log(cData)
+            var ctx = $("#pie-chart");
+            //pie chart data
+            var data = {
+                labels: cData.date,
+
+                datasets: [
+                    {
+                        label: "Users Count",
+                        data: cData.data,
+                        backgroundColor: [
+                            "#DEB887",
+                            "#A9A9A9",
+                            "#DC143C",
+                            "#F4A460",
+                            "#2E8B57",
+                            "#1D7A46",
+                            "#CDA776",
+                        ],
+                        borderColor: [
+                            "#CDA776",
+                            "#989898",
+                            "#CB252B",
+                            "#E39371",
+                            "#1D7A46",
+                            "#F4A460",
+                            "#CDA776",
+                        ],
+                        borderWidth: [1, 1, 1, 1, 1,1,1]
+                    }
+                ]
+            };
+
+            //options
+            var options = {
+                responsive: true,
+                title: {
+                    display: true,
+                    position: "top",
+                    text: "Yearly News Pie-Chart",
+                    fontSize: 18,
+                    fontColor: "#111"
+                },
+                legend: {
+                    display: true,
+                    position: "bottom",
+                    labels: {
+                        fontColor: "#333",
+                        fontSize: 16
+                    }
+                }
+            };
+
+            //create Pie Chart class object
+            var chart1 = new Chart(ctx, {
+                type: "pie",
+                data: data,
+                options: options
+            });
+
+        });
+    </script>
+
+
+{{--    <script type="text/javascript">--}}
+{{--        var bars_basic_element = document.getElementById('bars_basic');--}}
+{{--        if (bars_basic_element) {--}}
+{{--            var bars_basic = echarts.init(bars_basic_element);--}}
+{{--            bars_basic.setOption({--}}
+{{--                color: ['#3398DB'],--}}
+{{--                tooltip: {--}}
+{{--                    trigger: 'axis',--}}
+{{--                    axisPointer: {--}}
+{{--                        type: 'shadow'--}}
+{{--                    }--}}
+{{--                },--}}
+{{--                grid: {--}}
+{{--                    left: '3%',--}}
+{{--                    right: '4%',--}}
+{{--                    bottom: '3%',--}}
+{{--                    containLabel: true--}}
+{{--                },--}}
+{{--                xAxis: [--}}
+{{--                    {--}}
+{{--                        type: 'category',--}}
+{{--                        data: ['Fruit'],--}}
+{{--                        axisTick: {--}}
+{{--                            alignWithLabel: true--}}
+{{--                        }--}}
+{{--                    }--}}
+{{--                ],--}}
+{{--                yAxis: [--}}
+{{--                    {--}}
+{{--                        type: 'value'--}}
+{{--                    }--}}
+{{--                ],--}}
+{{--                series: [--}}
+{{--                    {--}}
+{{--                        name: 'Total Products',--}}
+{{--                        type: 'bar',--}}
+{{--                        barWidth: '20%',--}}
+{{--                        data: [--}}
+{{--                            100--}}
+
+{{--                        ]--}}
+{{--                    }--}}
+{{--                ]--}}
+{{--            });--}}
+{{--        }--}}
+{{--    </script>--}}
+
 @endsection

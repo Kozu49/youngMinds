@@ -26,6 +26,11 @@
         {{--</div>--}}
     {{--</form>--}}
 
+    <div>
+        <a href="{{route('show.notification')}}" class="pull-right" target="_blank"><i class="fa fa-bell" aria-hidden="true"></i>{{auth()->user()->unreadNotifications->count()}}</i></a>
+
+    </div>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 

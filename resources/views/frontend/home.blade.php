@@ -1,19 +1,18 @@
 @extends('frontend.layouts.master_home')
 <br>
+<br>
+<br>
+<br>
 <section id="notice" class="notice">
     <div class="container-flex" id="test">
         <div class="row scroll">
             <div class="col-md-2 col-sm-3 scroll_01 ">
                 <strong>Notice :</strong>
-
             </div>
             <div class="col-md-10 col-sm-9 scroll_02">
                 <marquee>
                     @foreach($notices as $notice)
-
-
                         <strong>****  {{$notice->title}}</strong>
-
                     @endforeach
                 </marquee>
             </div>

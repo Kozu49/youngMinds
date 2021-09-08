@@ -34,7 +34,6 @@ class NewsController extends Controller
      */
     public function index()
     {
-
         $newses = $this->newsRepository->all();
         return view('backend.news.index', compact('newses'));
     }
@@ -57,6 +56,11 @@ class NewsController extends Controller
      */
     public function store(NewsRequest $request)
     {
+        $date = explode('-', $request->news_date);
+        $obj = new NepaliDate();
+        $date = $obj->convertBsToAd($date[0],$date[1],$date[2]);
+        unset($date['weekday']);
+        $last_date = implode('-', $date);
         try {
             $banner_image=$request->file('banner_image');
             $name_gen=hexdec(uniqid());
@@ -68,7 +72,7 @@ class NewsController extends Controller
             News::insert([
                 'title'=>$request->title,
                 'content'=>$request->content,
-                'news_date'=>$request->news_date,
+                'news_date'=>$last_date,
                 'user_id'=>Auth::user()->id,
                 'banner_image'=>$last_img,
 //                'slug'=>str_slug($request->title,'%'),
@@ -76,7 +80,9 @@ class NewsController extends Controller
                 'created_at'=>Carbon::now(),
 
             ]);
+//            $request->session()->put('news',$request->title);
             session()->flash('success', 'News Successfully Added!');
+//            session(['news' => $request->title]);
             return back();
 
         } catch (\Exception $e) {

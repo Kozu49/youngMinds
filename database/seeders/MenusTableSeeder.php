@@ -315,6 +315,15 @@ class MenusTableSeeder extends Seeder
                 'menu_icon' => '<i class="fa fa-envelope" aria-hidden="true"></i>',
                 'menu_status' => '1',
                 'menu_order' => '30'
+            ],[
+                'parent_id' => '0',
+                'menu_name' => 'Report',
+                'menu_link' => 'admin/report',
+                'menu_controller' => 'ReportController',
+                'menu_css' => '',
+                'menu_icon' => '<i class="fa fa-file" aria-hidden="true"></i>',
+                'menu_status' => '1',
+                'menu_order' => '31'
             ],
 
         ];

@@ -31,13 +31,18 @@ use App\Http\Controllers\NavBarController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\LangController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\UserNotifocationController;
 
 Auth::routes();
 //Route::get('/', function () {
 //    return view('frontend.home');
 //});
-
+Route::get('/lang/{id}', [LocalizationController::class,'index']);
 Route::get('/', [FrontendController::class,'index'])->name('home');
 Route::get('/news', [FrontendController::class,'newsShow'])->name('show.news');
 Route::get('/news/{slug}', [FrontendController::class,'newsSingleShow'])->name('news.single.page');
@@ -46,11 +51,11 @@ Route::get('/notice', [FrontendController::class,'noticeShow'])->name('show.noti
 Route::get('/download', [FrontendController::class,'download'])->name('show.download');
 Route::get('/contact', [FrontendController::class,'contact'])->name('show.contact');
 Route::post('/contactUs', [FrontendController::class,'contactUs'])->name('client.contact');
-//Route::get('/', 'HomeController@index');
 
 
-//Route::post('/admin/news', [PdfController::class,'test'])->name('news.pdf');
-
+Route::get('/send', [NotificationController::class,'sendOfferNotification']);
+Route::get('/show/notifications', [UserNotifocationController::class,'notifications'])->name('show.notification');
+Route::get('/show/notifications/{slug}', [UserNotifocationController::class,'viewNotifications'])->name('notification.view');
 
 Route::group(['middleware' => ['auth', 'roles']], function () {
 
@@ -112,6 +117,10 @@ Route::group(['middleware' => ['auth', 'roles']], function () {
     Route::resource('admin/contact', ContactController::class);
     Route::resource('admin/socialmedia', SocialController::class);
     Route::resource('admin/message', MessageController::class);
+
+    Route::get('admin/report', [ReportController::class,'showReport'])->name('show.report');
+    Route::post('admin/report/search', [ReportController::class,'searchReport'])->name('report.form');
+
 
 
     Route::resource('feedback', FeedbackController::class);

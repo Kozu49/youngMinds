@@ -49,10 +49,23 @@
 <!-- datetimepicker -->
 <script src={{url("plugins/iCheck/icheck.min.js")}}></script>
 
+<!-- chart js -->
+<script src="{{url('plugins/chart.js/Chart.bundle.min.js')}}"></script>
+
+
 
 <script src="{{url('plugins/nepali-datepicker-v3/js/nepali.datepicker.v3.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
+//Date ranger
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
 <script>
     $(function () {
         $("#example1").DataTable();
@@ -103,3 +116,6 @@
         });
     });
 </script>
+
+
+

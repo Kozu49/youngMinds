@@ -80,7 +80,10 @@ return [
     |
     */
 
+
     'locale' => 'en',
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -162,6 +165,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
+        SamuelTerra22\ReportGenerator\ServiceProvider::class,
+        Jimmyjs\ReportGenerator\ServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -233,6 +239,11 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => niklasravnsborg\LaravelPdf\Facades\Pdf::class,
+        'PdfReport' => Jimmyjs\ReportGenerator\Facades\PdfReportFacade::class,
+        'ExcelReport' => Jimmyjs\ReportGenerator\Facades\ExcelReportFacade::class,
+        'CSVReport' => Jimmyjs\ReportGenerator\Facades\CSVReportFacade::class,
+
+
 
     ],
 
