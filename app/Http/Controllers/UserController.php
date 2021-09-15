@@ -81,8 +81,10 @@ class UserController extends Controller
     public function store(UserAddRequest $request)
     {
         try {
-            $password = str_random(6);
-            $request['password'] = bcrypt($password);
+//            $password = str_random(6);
+//            $request['password'] = bcrypt($password);
+            $request['password'] = bcrypt('guest');
+
 
             if (!empty($request->file('avatar_image'))) {
                 $userAvatar = $request->file('avatar_image');

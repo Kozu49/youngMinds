@@ -52,12 +52,14 @@
                                             ?>
                                         </div>
                                         <div>
+                                            @if($allowDelete)
                                             <button type="submit"
                                                     class="btn btn-danger pull-right"
                                                     data-toggle="tooltip"
                                                     id="deleteAllSelected"
                                                     onclick="javascript:return confirm('Are you sure you want to delete selected events?');">Delete Selected
                                             </button>
+                                                @endif
                                         </div>
                                         <div class="card-body">
                                             <table id="example1" class="table table-striped table-bordered table-hover table-responsive">

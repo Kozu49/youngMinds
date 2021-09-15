@@ -27,7 +27,7 @@ use App\Http\Controllers\API\NewsController;
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
 
-Route::apiResource('/news', NewsController::class)->middleware('auth:api') ;
+//Route::apiResource('/news', NewsController::class)->middleware('auth:api') ;
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

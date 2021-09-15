@@ -24,7 +24,7 @@
             </div><!-- /.container-fluid -->
         </section>
 
-     {{$slug}}
+      News Title: <a href="{{route('news.view',$news->id)}}">{{$news->title}}</a>
 
     </div>
 

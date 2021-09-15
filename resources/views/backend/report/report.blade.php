@@ -28,8 +28,9 @@
         <section class="content">
             <div class="container-fluid">
                 @include('backend.message.flash')
-<h3>News Search</h3>
-                <br>                <div class="col-md-6 grid-margin stretch-card">
+                <h3>News Search</h3>
+                <br>
+                <div class="col-md-10 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
 
@@ -59,6 +60,22 @@
 {{--                                <input type="text" name="daterange" />--}}
 
                                 <button type="submit" class="btn btn-primary mr-2 pull-right">Submit</button>
+{{--                                <a href=""--}}
+{{--                                   class="text-info btn btn-xs btn-default" data-toggle="tooltip"--}}
+{{--                                   data-placement="top" title="Edit" style="margin: 0px 5px;">--}}
+{{--                                    <i class="fas fa-file-csv"></i>Export To PDF--}}
+{{--                                </a>--}}
+                                <a href="{{route('export')}}"
+                                   class="text-info btn btn-xs btn-default" data-toggle="tooltip"
+                                   data-placement="top" title="Edit" style="margin: 0px 5px;">
+                                    <i class="fas fa-file-csv"></i>Export To CSV
+                                </a>
+
+                                <a href="{{route('import.show')}}"
+                                   class="text-info btn btn-xs btn-default" data-toggle="tooltip"
+                                   data-placement="top" title="Edit" style="margin: 0px 5px;">
+                                    <i class="fas fa-file-csv"></i>Import CSV
+                                </a>
                             </form>
                             <br>
 
@@ -68,15 +85,17 @@
 
 
                     <div class="col-md-10">
-                        <table class="table table-dark table-hover">
+                        <table class="table  table-hover">
                             <tr>
                                 <th>Title</th>
                                 <th>Date</th>
+                                <th>Author</th>
                             </tr>
                             @foreach($news as $new)
                                 <tr>
-                                    <td>{{$new->title}}</td>
+                                    <td><a href="{{route('news.view',$new ->id)}}">{{$new->title}}</a></td>
                                     <td>{{$new->news_date}}</td>
+                                    <td>{{$new->user->name}}</td>
                                 </tr>
                             @endforeach
 

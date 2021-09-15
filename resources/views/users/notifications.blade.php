@@ -29,7 +29,8 @@
                @if($notification->type=="App\Notifications\NewsNotification")
                     <strong>{{$notification->data['news_id']['body']}}</strong>
                    @endif
-                   <a href="{{route('notification.view',$notification->data['news_id']['slug'])}}" class="btn float-right btn-info ">
+
+                   <a href="{{route('notification.view',$notification->data['news_id']['id'])}}" class="btn float-right btn-info ">
                        View Notification
 
                    </a>

@@ -45,7 +45,8 @@ class NewsNotification extends Notification
                     ->line($this->newsData['body'])
                     ->action($this->newsData['newsText'], $this->newsData['url'])
                     ->line($this->newsData['thanks'])
-                    ->line($this->newsData['slug']);
+                    ->line($this->newsData['slug'])
+                    ->line($this->newsData['id']);
     }
 
     /**

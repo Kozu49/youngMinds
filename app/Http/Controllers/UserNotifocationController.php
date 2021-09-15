@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\News;
 use Illuminate\Notifications\Notifiable;
 
 
@@ -15,8 +16,9 @@ public function notifications(){
     return view('users.notifications',compact('notifications'));
 }
 
-public function viewNotifications($slug){
-    return view('users.view_notification',compact('slug'));
+public function viewNotifications($id){
+    $news=News::find($id);
+    return view('users.view_notification',compact('news'));
 
 }
 }

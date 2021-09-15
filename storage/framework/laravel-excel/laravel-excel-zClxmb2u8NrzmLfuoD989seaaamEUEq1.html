@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>     Report
+</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- bootstrap datetimepicker -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+    <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" href="http://127.0.0.1:8000/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .select2-container .select2-selection--single{
+            min-height: 42px !important;
+        }
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- library js validate -->
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="http://127.0.0.1:8000/plugins/nepali-datepicker-v3/css/nepali.datepicker.v3.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+
+
+
+
+
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- Navbar -->
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+        </li>
+        
+            
+        
+        
+            
+        
+    </ul>
+
+    <!-- SEARCH FORM -->
+    
+        
+            
+            
+                
+                    
+                
+            
+        
+    
+
+    <div>
+        <a href="http://127.0.0.1:8000/show/notifications" class="pull-right" target="_blank"><i class="fa fa-bell" aria-hidden="true"></i>0</i></a>
+
+    </div>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <i class="far fa-user"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+                <span class="dropdown-item dropdown-header">
+                                             <img src="http://127.0.0.1:8000/storage/uploads/users/images/profilePic/profile1629871627.jpg" class="img-circle elevation-2" alt="User Image" style="width: 100px;height: 90px;margin-left:70px;">
+                                             <a href="http://127.0.0.1:8000/dashboard" class="d-block">Young Minds</a>
+                    Settings
+                </span>
+                <div class="dropdown-divider"></div>
+                <a href="http://127.0.0.1:8000/profile" class="dropdown-item">
+                    <i class="fas fa-user mr-2"></i> View Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="http://127.0.0.1:8000/profile" class="dropdown-item">
+                    <i class="fas fa-cogs mr-2"></i> Change Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="http://127.0.0.1:8000/logout" class="dropdown-item"  onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+
+                <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST"
+                      style="display: none;">
+                    <input type="hidden" name="_token" value="g8mM4QIe324cprZ08zaFH9cdzEYaj3MiCm9CYwMK">
+                </form>
+
+                <div class="dropdown-divider"></div>
+            </div>
+        </li>
+
+        
+            
+                
+            
+        
+    </ul>
+</nav>
+<!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+    <!-- Brand Logo -->
+    <a href="http://127.0.0.1:8000/dashboard" class="brand-link">
+        <img src="http://127.0.0.1:8000/uploads/images/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light"> <strong>Young Minds</strong></span>
+    </a>
+
+        <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                                    <img src="http://127.0.0.1:8000/storage/uploads/users/images/profilePic/profile1629871627.jpg"
+                         class="img-circle elevation-2" alt="User Image">
+                
+            </div>
+            <div class="info">
+                <a href="http://127.0.0.1:8000/dashboard" class="d-block">Young Minds</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="http://127.0.0.1:8000/dashboard" class="nav-link ">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                                                        <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/user"
+                            class="nav-link ">
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            <p>
+                                Users
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item has-treeview" id="menu_2">
+                        <a href="#" class="nav-link ">
+                           <i class="fa fa-wrench" aria-hidden="true"></i>
+                            <p>
+                                Roles
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/roles/menu"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-list" aria-hidden="true"></i>
+                                        <p>Menus</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/roles/group"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-group" aria-hidden="true"></i>
+                                        <p>User Groups</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/roles/roleAccessIndex"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-unlock" aria-hidden="true"></i>
+                                        <p>Role Access</p>
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                                                                            <li class="nav-item has-treeview" id="menu_3">
+                        <a href="#" class="nav-link ">
+                           <i class="fa fa-gears" aria-hidden="true"></i>
+                            <p>
+                                Configuration
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/department"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Department</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/designation"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Designation</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/fiscalYear"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Fiscal Year</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/country"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Country</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/pradesh"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Pradesh</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/muniType"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Municipality Type</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/district"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>District</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/municipality"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Municipality</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/officeType"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Office Type</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/configurations/office"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-gears" aria-hidden="true"></i>
+                                        <p>Office</p>
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                                                                            <li class="nav-item has-treeview" id="menu_4">
+                        <a href="#" class="nav-link ">
+                           <i class="fa fa-child" aria-hidden="true"></i>
+                            <p>
+                                Logs
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+
+                        <ul class="nav nav-treeview">
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/logs/loginLogs"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i>
+                                        <p>Login Logs</p>
+                                    </a>
+                                </li>
+                                                             <li class="nav-item has-parent">
+                                    <a href="http://127.0.0.1:8000/logs/failLoginLogs"
+                                        class="nav-link ">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-user-times" aria-hidden="true"></i>
+                                        <p>Failed Login Logs</p>
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/feedback"
+                            class="nav-link ">
+                            <i class="fas fa-comment-dots"></i>
+                            <p>
+                                Feedback
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/news"
+                            class="nav-link ">
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                            <p>
+                                News
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/notice"
+                            class="nav-link ">
+                            <i class="fa fa-bell" aria-hidden="true"></i>
+                            <p>
+                                Notice
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/event"
+                            class="nav-link ">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            <p>
+                                Event
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/download"
+                            class="nav-link ">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                            <p>
+                                Download
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/slider"
+                            class="nav-link ">
+                            <i class="fa fa-sliders" aria-hidden="true"></i>
+                            <p>
+                                Slider
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/navbar"
+                            class="nav-link ">
+                            <i class="fa fa-sliders" aria-hidden="true"></i>
+                            <p>
+                                Navbar
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/contact"
+                            class="nav-link ">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <p>
+                                Contact
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/socialmedia"
+                            class="nav-link ">
+                            <i class="fab fa-facebook-f"></i>
+                            <p>
+                                SocialMedia
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/message"
+                            class="nav-link ">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <p>
+                                Message
+                            </p>
+                        </a>
+                    </li>
+                                                                            <li class="nav-item">
+                        <a href="http://127.0.0.1:8000/admin/report"
+                            class="nav-link ">
+                            <i class="fa fa-file" aria-hidden="true"></i>
+                            <p>
+                                Report
+                            </p>
+                        </a>
+                    </li>
+                                                </ul>
+        </nav>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            console.log('DOM is ready.')
+            let active_ele = document.querySelector('.active').parentElement;
+            if(active_ele.classList.contains('has-parent')){
+                active_ele.parentElement.style.display='block';
+                active_ele.parentElement.parentElement.classList.add('menu-open');
+            }
+        });
+    </script>
+</aside>        <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="http://127.0.0.1:8000/dashboard">Dashboard</a></li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+    <div class="col-md-12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div></div>                <h3>News Search</h3>
+                <br>
+                <div class="col-md-10 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <form method="POST" action="http://127.0.0.1:8000/admin/report/search" class="forms-sample">
+                                <input type="hidden" name="_token" value="g8mM4QIe324cprZ08zaFH9cdzEYaj3MiCm9CYwMK">                                  <div class="row">
+                                      <div class="col-md-5">
+                                          <div class="form-group">
+                                              <label for="exampleInputUsername1">From Date</label>
+                                              <input type="date" class="form-control" name="from_date" placeholder="From Date" value="2021-09-05">
+                                                                                        </div>
+                                      </div>
+                                      <div class="col-md-5">
+                                          <div class="form-group">
+                                              <label for="exampleInputEmail1">To Date</label>
+                                              <input type="date" class="form-control" name="to_date" placeholder="To Date" value="2021-09-05">
+                                                                                        </div>
+                                      </div>
+
+                                  </div>
+
+
+                                <button type="submit" class="btn btn-primary mr-2 pull-right">Submit</button>
+                                <button type="submit"
+                                        class="btn btn-primary"
+                                        data-toggle="tooltip"
+                                        data-placement="top" title="Export To Pdf"
+                                        onclick="javascript:return confirm('Are you sure you want to Export?');">
+                                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export To PDF
+                                </button>
+                                <a href="http://127.0.0.1:8000/export-excel-csv-file"><button type="submit"
+                                                   class="btn btn-primary"
+
+                                                   data-placement="top" title="Export To CSV"
+                                                   onclick="javascript:return confirm('Are you sure you want to Export?');">
+                                        <i class="fas fa-file-csv"></i> Export To CSV
+                                    </button></a>
+
+                                <a href="http://127.0.0.1:8000/export-excel-csv-file">manoj</a>
+                                <button type="submit"
+                                        class="btn btn-primary"
+                                        data-toggle="tooltip"
+                                        data-placement="top" title="Import CSV"
+                                        >
+                                    <i class="fas fa-file-csv"></i> Import CSV
+                                </button>
+                            </form>
+                            <br>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                    <div class="col-md-10">
+                        <table class="table  table-hover">
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Author</th>
+                            </tr>
+                                                            <tr>
+                                    <td><a href="http://127.0.0.1:8000/admin/news/12/view">Kabul airport attack kills 60 Afghans, 13 US troops</a></td>
+                                    <td>2021-08-28</td>
+                                    <td>Young Minds</td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://127.0.0.1:8000/admin/news/13/view">Justin Bieber working with YouTube on ‘top secret project’</a></td>
+                                    <td>2021-08-28</td>
+                                    <td>Young Minds</td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://127.0.0.1:8000/admin/news/14/view">CJ Rana to not attend hearing on petition against ordinance about Constitutional Council</a></td>
+                                    <td>2021-08-03</td>
+                                    <td>Young Minds</td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://127.0.0.1:8000/admin/news/89/view">Radhika returns from the hellish life created by her cousin&#039;s daughter</a></td>
+                                    <td>2021-9-14</td>
+                                    <td>Young Minds</td>
+                                </tr>
+                                                            <tr>
+                                    <td><a href="http://127.0.0.1:8000/admin/news/90/view">Four arrested for beating witch in Kathmandu</a></td>
+                                    <td>2021-9-13</td>
+                                    <td>Young Minds</td>
+                                </tr>
+                            
+                        </table>
+                    </div>
+            </div>
+        </section>
+        <!-- /.content -->
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2020-2021 <a href="http://adminlte.io">Young Minds Creation Pvt. Ltd.</a></strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+        <b>Powered by : </b> Young Minds Creation Pvt. Ltd.
+    </div>
+</footer>
+
+//Nepalidate
+<!-- this should go after your </body> -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/nepali-date-picker@2.0.1/dist/jquery.nepaliDatePicker.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/nepali-date-picker@2.0.1/dist/nepaliDatePicker.min.css" crossorigin="anonymous" />
+
+
+<!-- jQuery -->
+<script src="http://127.0.0.1:8000/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="http://127.0.0.1:8000/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="http://127.0.0.1:8000/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- overlayScrollbars -->
+<script src="http://127.0.0.1:8000/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="http://127.0.0.1:8000/dist/js/adminlte.min.js"></script>
+
+<!-- DataTables -->
+<script src="http://127.0.0.1:8000/plugins/datatables/jquery.dataTables.js"></script>
+<script src="http://127.0.0.1:8000/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
+<!-- Select2 -->
+<script src="http://127.0.0.1:8000/plugins/select2/js/select2.full.min.js"></script>
+<script src=http://127.0.0.1:8000/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js></script>
+<!-- datetimepicker -->
+
+<!-- Bootstrap Switch -->
+<script src="http://127.0.0.1:8000/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+
+<!-- bootstrap color picker -->
+<script src="http://127.0.0.1:8000/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- datetimepicker -->
+<script src=http://127.0.0.1:8000/plugins/iCheck/icheck.min.js></script>
+
+<!-- chart js -->
+<script src="http://127.0.0.1:8000/plugins/chart.js/Chart.bundle.min.js"></script>
+
+
+
+<script src="http://127.0.0.1:8000/plugins/nepali-datepicker-v3/js/nepali.datepicker.v3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
+//Date ranger
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script>
+    $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+        });
+    });
+</script>
+<script>
+    $(function () {
+
+        $('#example3').DataTable({
+            "paging": false,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+        });
+    });
+</script>
+
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2();
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        });
+
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        $('.my-colorpicker2').on('colorpickerChange', function(event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        });
+
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+    });
+</script>
+
+
+
+        <script>
+        $(function() {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            }, function(start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+        });
+    </script>
+
+    <!-- Control Sidebar -->
+    <!-- /.control-sidebar -->
+</div>
+
+
+
+</body>
+
+</html>

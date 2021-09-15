@@ -10,6 +10,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Nilambar\NepaliDate\NepaliDate;
 use PDF;
+use function Livewire\str;
 use function PHPUnit\Framework\assertLessThan;
 
 
@@ -69,7 +70,7 @@ class NewsController extends Controller
             $up_location='image/news/';
             $last_img=$up_location.$img_name;
             $banner_image->move($up_location,$img_name);
-            News::insert([
+            $data=News::create([
                 'title'=>$request->title,
                 'content'=>$request->content,
                 'news_date'=>$last_date,
@@ -80,9 +81,13 @@ class NewsController extends Controller
                 'created_at'=>Carbon::now(),
 
             ]);
+            $news_id=strval($data->id);
+
 //            $request->session()->put('news',$request->title);
             session()->flash('success', 'News Successfully Added!');
 //            session(['news' => $request->title]);
+            app('App\Http\Controllers\NotificationController')->sendOfferNotification($request->title,$news_id);
+
             return back();
 
         } catch (\Exception $e) {

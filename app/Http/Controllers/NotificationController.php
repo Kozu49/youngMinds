@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Notifications\NewsNotification;
 use App\Models\User;
 use Illuminate\Support\Facades\Notification;
+use function Composer\Autoload\includeFile;
 
 class NotificationController extends Controller
 {
@@ -19,18 +20,18 @@ class NotificationController extends Controller
 //        return view('test');
 //    }
 
-    public function sendOfferNotification() {
+    public function sendOfferNotification($slug,$id) {
         $user = User::first();
 //        $user = User::first();
         $newsData = [
-            'body' => 'You received a new Notification',
+            'body' => 'News Added',
             'thanks' => 'Thank you',
-            'newsText' => 'Check out the Notification test',
+            'newsText' => 'Check out the News',
             'url' => url('/news'),
-            'slug' => 'test slug2',
+            'slug' => $slug,
+            'id' => $id,
 //            'news_id' => 007
         ];
-
         Notification::send($user, new NewsNotification($newsData));
 //        $user->notify(new NewsNotification($newsData));
 

@@ -11,6 +11,7 @@ use App\Http\Requests\NewsRequest;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 
+
 class NewsController extends Controller
 {
     /**

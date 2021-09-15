@@ -37,6 +37,8 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\UserNotifocationController;
+use App\Http\Controllers\ExcelCSVController;
+
 
 Auth::routes();
 //Route::get('/', function () {
@@ -55,7 +57,15 @@ Route::post('/contactUs', [FrontendController::class,'contactUs'])->name('client
 
 Route::get('/send', [NotificationController::class,'sendOfferNotification']);
 Route::get('/show/notifications', [UserNotifocationController::class,'notifications'])->name('show.notification');
-Route::get('/show/notifications/{slug}', [UserNotifocationController::class,'viewNotifications'])->name('notification.view');
+Route::get('/show/notifications/{id}', [UserNotifocationController::class,'viewNotifications'])->name('notification.view');
+
+
+//Excel
+Route::get('excel-csv-file', [ExcelCSVController::class, 'index']);
+Route::post('import-excel-csv-file', [ExcelCSVController::class, 'importExcelCSV'])->name('import');
+Route::get('import-excel-csv-file', [ExcelCSVController::class, 'show'])->name('import.show');
+Route::get('export-excel-csv-file/', [ExcelCSVController::class, 'exportExcelCSV'])->name('export');
+
 
 Route::group(['middleware' => ['auth', 'roles']], function () {
 
@@ -120,6 +130,7 @@ Route::group(['middleware' => ['auth', 'roles']], function () {
 
     Route::get('admin/report', [ReportController::class,'showReport'])->name('show.report');
     Route::post('admin/report/search', [ReportController::class,'searchReport'])->name('report.form');
+
 
 
 

@@ -167,6 +167,8 @@ return [
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
         SamuelTerra22\ReportGenerator\ServiceProvider::class,
         Jimmyjs\ReportGenerator\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+
 
 
         /*
@@ -242,6 +244,7 @@ return [
         'PdfReport' => Jimmyjs\ReportGenerator\Facades\PdfReportFacade::class,
         'ExcelReport' => Jimmyjs\ReportGenerator\Facades\ExcelReportFacade::class,
         'CSVReport' => Jimmyjs\ReportGenerator\Facades\CSVReportFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
 
 
